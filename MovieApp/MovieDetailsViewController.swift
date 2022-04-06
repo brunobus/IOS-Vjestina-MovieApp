@@ -18,7 +18,7 @@ class MovieDetailsViewController: UIViewController {
      u posteru trebam labele dodavati odozdola prema gore
      kako da dodam ou slicicu favorite
      ne mogu razbiti opis filma u vise redova
-     
+     kad stavim label.top to bottom of another label ne rade mi inseti i ofseti
      */
     
     private var safeAreaView: UIView!
@@ -184,6 +184,7 @@ class MovieDetailsViewController: UIViewController {
         
         contentView.snp.makeConstraints {
             $0.edges.equalTo(scrollView)
+            $0.width.equalTo(view)
         }
         
         addConstraintsInPosterView()
@@ -240,13 +241,13 @@ class MovieDetailsViewController: UIViewController {
     func addConstraintsInScroolView() {
         
         overviewLabel.snp.makeConstraints {
-            $0.leading.equalTo(contentView).offset(16)
+            $0.leading.trailing.equalTo(contentView).offset(16)
             $0.top.equalTo(contentView).offset(32)
         }
         
         overviewTextLabel.snp.makeConstraints {
             $0.leading.equalTo(overviewLabel.snp.leading)
-            $0.trailing.equalTo(contentView.snp.trailing).offset(16)
+            $0.trailing.equalTo(contentView.snp.trailing).inset(16)
             $0.top.equalTo(overviewLabel.snp.bottom).offset(20)
         }
     }
