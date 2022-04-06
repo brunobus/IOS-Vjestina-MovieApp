@@ -170,7 +170,7 @@ class MovieDetailsViewController: UIViewController {
         
         posterView.snp.makeConstraints{
             $0.leading.trailing.top.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(bounds.height*0.4)
+            $0.bottom.equalToSuperview().inset(bounds.height*0.5)
         }
         
         posterImage.snp.makeConstraints{
@@ -193,7 +193,7 @@ class MovieDetailsViewController: UIViewController {
     func addConstraintsInPosterView() {
         popularityLabel.snp.makeConstraints{
             $0.leading.equalTo(posterView).inset(16)
-            $0.top.equalTo(posterView).inset(96)
+            $0.bottom.equalTo(titleLabel.snp.bottom).inset(28)
         }
         
         userScoreLabel.snp.makeConstraints {
@@ -203,7 +203,7 @@ class MovieDetailsViewController: UIViewController {
         
         titleLabel.snp.makeConstraints {
             $0.leading.equalTo(popularityLabel.snp.leading)
-            $0.top.equalTo(popularityLabel.snp.bottom).offset(20)
+            $0.bottom.equalTo(releaseDateLabel.snp.bottom).inset(36)
         }
         
         releaseYearLabel.snp.makeConstraints {
@@ -213,7 +213,7 @@ class MovieDetailsViewController: UIViewController {
         
         releaseDateLabel.snp.makeConstraints {
             $0.leading.equalTo(popularityLabel.snp.leading)
-            $0.top.equalTo(titleLabel.snp.bottom).offset(15)
+            $0.bottom.equalTo(durationLabel.snp.bottom).inset(28)
         }
         
         releaseCountryLabel.snp.makeConstraints {
@@ -223,7 +223,7 @@ class MovieDetailsViewController: UIViewController {
         
         genreLabel.snp.makeConstraints {
             $0.leading.equalTo(popularityLabel.snp.leading)
-            $0.top.equalTo(releaseDateLabel.snp.bottom).offset(10)
+            $0.bottom.equalTo(posterView.snp.bottom).inset(40)
         }
         
         durationLabel.snp.makeConstraints {
