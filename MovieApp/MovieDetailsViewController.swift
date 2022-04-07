@@ -17,9 +17,10 @@ class MovieDetailsViewController: UIViewController {
      kad rotiram screen sve mi se unisti
      u posteru trebam labele dodavati odozdola prema gore
      kako da dodam ou slicicu favorite
-     ne mogu razbiti opis filma u vise redova
      kad stavim label.top to bottom of another label ne rade mi inseti i ofseti
      */
+    
+    
     
     private var safeAreaView: UIView!
     private var posterView: UIView!
@@ -40,6 +41,19 @@ class MovieDetailsViewController: UIViewController {
     
     private var overviewLabel: UILabel!
     private var overviewTextLabel: UILabel!
+    private var caracter1: UILabel!
+    private var caracter2: UILabel!
+    private var director: UILabel!
+    private var screenplay1: UILabel!
+    private var screenplay2: UILabel!
+    private var screenplay3: UILabel!
+    private var caracter1label: UILabel!
+    private var caracter2label: UILabel!
+    private var directorlabel: UILabel!
+    private var screenplay1label: UILabel!
+    private var screenplay2label: UILabel!
+    private var screenplay3label: UILabel!
+
     
     private let leadingInset = 15
     
@@ -148,6 +162,54 @@ class MovieDetailsViewController: UIViewController {
         overviewTextLabel.text = "After being held captive in Afghan cave, billionare engineer Tony Stark creates a unique weponized suit of armor to fight evel"
         overviewTextLabel.numberOfLines = 0
         contentView.addSubview(overviewTextLabel)
+        
+        caracter1 = UILabel()
+        caracter1.text = "Don Heck"
+        contentView.addSubview(caracter1)
+        
+        caracter2 = UILabel()
+        caracter2.text = "Jack Kirby"
+        contentView.addSubview(caracter2)
+        
+        director = UILabel()
+        director.text = "Jon Favreau"
+        contentView.addSubview(director)
+        
+        screenplay1 = UILabel()
+        screenplay1.text = "Don Heck"
+        contentView.addSubview(screenplay1)
+        
+        screenplay2 = UILabel()
+        screenplay2.text = "Jack Marcum"
+        contentView.addSubview(screenplay2)
+        
+        screenplay3 = UILabel()
+        screenplay3.text = "Matt Holloway"
+        contentView.addSubview(screenplay3)
+        
+        caracter1label = UILabel()
+        caracter1label.text = "Characters"
+        contentView.addSubview(caracter1label)
+        
+        caracter2label = UILabel()
+        caracter2label.text = "Characters"
+        contentView.addSubview(caracter2label)
+        
+        directorlabel = UILabel()
+        directorlabel.text = "Director"
+        contentView.addSubview(directorlabel)
+        
+        screenplay1label = UILabel()
+        screenplay1label.text = "Screenplay"
+        contentView.addSubview(screenplay1label)
+        
+        screenplay2label = UILabel()
+        screenplay2label.text = "Screenplay"
+        contentView.addSubview(screenplay2label)
+        
+        screenplay3label = UILabel()
+        screenplay3label.text = "Screenplay"
+        contentView.addSubview(screenplay3label)
     }
     
     func styleViews() {
@@ -156,10 +218,27 @@ class MovieDetailsViewController: UIViewController {
         posterImage.contentMode = .scaleAspectFill
         posterImage.clipsToBounds = true
         
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 26)
         durationLabel.font = UIFont.boldSystemFont(ofSize: 16)
         
         contentView.backgroundColor = .white
+        
+        overviewLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        
+        
+        caracter1.font = UIFont.boldSystemFont(ofSize: 14)
+        caracter2.font = UIFont.boldSystemFont(ofSize: 14)
+        director.font = UIFont.boldSystemFont(ofSize: 14)
+        screenplay1.font = UIFont.boldSystemFont(ofSize: 14)
+        screenplay2.font = UIFont.boldSystemFont(ofSize: 14)
+        screenplay3.font = UIFont.boldSystemFont(ofSize: 14)
+        
+        caracter1label.font = UIFont.systemFont(ofSize: 14)
+        caracter2label.font = UIFont.systemFont(ofSize: 14)
+        directorlabel.font = UIFont.systemFont(ofSize: 14)
+        screenplay1label.font = UIFont.systemFont(ofSize: 14)
+        screenplay2label.font = UIFont.systemFont(ofSize: 14)
+        screenplay3label.font = UIFont.systemFont(ofSize: 14)
     }
     
     func addConstraints() {
@@ -249,6 +328,83 @@ class MovieDetailsViewController: UIViewController {
             $0.leading.equalTo(overviewLabel.snp.leading)
             $0.trailing.equalTo(contentView.snp.trailing).inset(16)
             $0.top.equalTo(overviewLabel.snp.bottom).offset(20)
+        }
+        
+        caracter1.snp.makeConstraints {
+            $0.leading.equalTo(contentView).offset(16)
+            $0.top.equalTo(overviewTextLabel.snp.bottom).offset(32)
+            $0.width.equalTo(caracter2)
+        }
+        
+        caracter2.snp.makeConstraints {
+            $0.leading.equalTo(caracter1.snp.trailing).offset(6)
+            $0.trailing.equalTo(director.snp.leading)
+            $0.top.equalTo(caracter1.snp.top)
+        }
+        
+        director.snp.makeConstraints {
+            $0.leading.equalTo(caracter2.snp.trailing).offset(6)
+            $0.trailing.equalTo(contentView).inset(16)
+            $0.top.equalTo(caracter1.snp.top)
+            $0.width.equalTo(caracter2)
+        }
+        
+        caracter1label.snp.makeConstraints {
+            $0.leading.equalTo(caracter1.snp.leading)
+            $0.trailing.equalTo(caracter1.snp.trailing)
+            $0.top.equalTo(caracter1.snp.bottom).offset(4)
+        }
+        
+        caracter2label.snp.makeConstraints {
+            $0.leading.equalTo(caracter2.snp.leading)
+            $0.trailing.equalTo(caracter2.snp.trailing)
+            $0.top.equalTo(caracter1.snp.bottom).offset(4)
+        }
+        
+        directorlabel.snp.makeConstraints {
+            $0.leading.equalTo(director.snp.leading)
+            $0.trailing.equalTo(director.snp.trailing)
+            $0.top.equalTo(director.snp.bottom).offset(4)
+        }
+        
+        
+        screenplay1.snp.makeConstraints {
+            $0.leading.equalTo(contentView.snp.leading).offset(16)
+            $0.top.equalTo(caracter1label.snp.bottom).offset(24)
+            $0.width.equalTo(screenplay2)
+        }
+        
+        screenplay2.snp.makeConstraints {
+            $0.leading.equalTo(screenplay1.snp.trailing).offset(6)
+            $0.trailing.equalTo(screenplay3.snp.leading)
+            $0.top.equalTo(screenplay1.snp.top)
+        }
+        
+        screenplay3.snp.makeConstraints {
+            $0.leading.equalTo(screenplay2.snp.trailing).offset(6)
+            $0.trailing.equalTo(contentView.snp.trailing).inset(16)
+            $0.top.equalTo(screenplay1.snp.top)
+            $0.width.equalTo(screenplay2)
+        }
+        
+        
+        screenplay1label.snp.makeConstraints {
+            $0.leading.equalTo(contentView.snp.leading).offset(16)
+            $0.top.equalTo(screenplay1.snp.bottom).offset(4)
+            $0.width.equalTo(screenplay2label)
+        }
+        
+        screenplay2label.snp.makeConstraints {
+            $0.leading.equalTo(screenplay1label.snp.trailing).offset(6)
+            $0.trailing.equalTo(screenplay3label.snp.leading)
+            $0.top.equalTo(screenplay1label.snp.top)
+        }
+        
+        screenplay3label.snp.makeConstraints {
+            $0.leading.equalTo(screenplay2label.snp.trailing).offset(6)
+            $0.trailing.equalTo(contentView.snp.trailing).inset(16)
+            $0.top.equalTo(screenplay1label.snp.top)
+            $0.width.equalTo(screenplay2label)
         }
     }
     
