@@ -18,6 +18,7 @@ class MovieDetailsViewController: UIViewController {
      u posteru trebam labele dodavati odozdola prema gore
      kako da dodam ou slicicu favorite
      kad stavim label.top to bottom of another label ne rade mi inseti i ofseti
+     scroll ne radi
      */
     
     
